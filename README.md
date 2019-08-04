@@ -1,2 +1,2 @@
 # Bookshelf   
-## this is a simple app to help me learn various SQLite frameworks
+## This is a simple app to help me learn various SQLite frameworks and CoreData

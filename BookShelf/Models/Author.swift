@@ -11,14 +11,17 @@ import Foundation
 class Author {
   let name: String
   let bio: String?
+  let portrait: String?
   
-  init(name: String, bio: String) {
+  init(name: String, bio: String, portrait: String) {
     self.name = name
     self.bio = bio
+    self.portrait = portrait
   }
   
   init(name: String) {
     self.name = name
     self.bio = nil
+    self.portrait = nil
   }
 }

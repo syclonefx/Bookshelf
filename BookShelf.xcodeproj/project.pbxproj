@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5854007222F9061F00BC327C /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5854007122F9061F00BC327C /* DatePickerTableViewCell.xib */; };
+		5854007422F9080E00BC327C /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854007322F9080E00BC327C /* DatePickerTableViewCell.swift */; };
+		5854007B22F919F400BC327C /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854007922F919F400BC327C /* TextFieldTableViewCell.swift */; };
+		5854007C22F919F400BC327C /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5854007A22F919F400BC327C /* TextFieldTableViewCell.xib */; };
 		588DFE4322F602D7006D8AD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DFE4222F602D7006D8AD6 /* AppDelegate.swift */; };
 		588DFE4522F602D7006D8AD6 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DFE4422F602D7006D8AD6 /* BooksViewController.swift */; };
 		588DFE4822F602D7006D8AD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588DFE4622F602D7006D8AD6 /* Main.storyboard */; };
@@ -18,9 +22,15 @@
 		588DFE5E22F60E23006D8AD6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DFE5D22F60E23006D8AD6 /* Book.swift */; };
 		588DFE6022F60E32006D8AD6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DFE5F22F60E32006D8AD6 /* Author.swift */; };
 		588DFE6322F6165F006D8AD6 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DFE6222F6165F006D8AD6 /* DataService.swift */; };
+		5894CFC222F7B428000BEF35 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5894CFC122F7B428000BEF35 /* AddBookViewController.swift */; };
+		5894CFC422F7B437000BEF35 /* AddAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5894CFC322F7B437000BEF35 /* AddAuthorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5854007122F9061F00BC327C /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		5854007322F9080E00BC327C /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		5854007922F919F400BC327C /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		5854007A22F919F400BC327C /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		588DFE3F22F602D7006D8AD6 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		588DFE4222F602D7006D8AD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		588DFE4422F602D7006D8AD6 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +44,8 @@
 		588DFE5D22F60E23006D8AD6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		588DFE5F22F60E32006D8AD6 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		588DFE6222F6165F006D8AD6 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		5894CFC122F7B428000BEF35 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		5894CFC322F7B437000BEF35 /* AddAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAuthorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +100,8 @@
 				588DFE5722F608DF006D8AD6 /* AuthorsViewController.swift */,
 				588DFE5922F60B98006D8AD6 /* BookViewController.swift */,
 				588DFE5B22F60BA4006D8AD6 /* AuthorViewController.swift */,
+				5894CFC122F7B428000BEF35 /* AddBookViewController.swift */,
+				5894CFC322F7B437000BEF35 /* AddAuthorViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,6 +109,10 @@
 		588DFE5522F60707006D8AD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5854007122F9061F00BC327C /* DatePickerTableViewCell.xib */,
+				5854007322F9080E00BC327C /* DatePickerTableViewCell.swift */,
+				5854007922F919F400BC327C /* TextFieldTableViewCell.swift */,
+				5854007A22F919F400BC327C /* TextFieldTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,7 +194,9 @@
 			files = (
 				588DFE4D22F602D8006D8AD6 /* LaunchScreen.storyboard in Resources */,
 				588DFE4A22F602D8006D8AD6 /* Assets.xcassets in Resources */,
+				5854007C22F919F400BC327C /* TextFieldTableViewCell.xib in Resources */,
 				588DFE4822F602D7006D8AD6 /* Main.storyboard in Resources */,
+				5854007222F9061F00BC327C /* DatePickerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,10 +210,14 @@
 				588DFE5822F608DF006D8AD6 /* AuthorsViewController.swift in Sources */,
 				588DFE5C22F60BA4006D8AD6 /* AuthorViewController.swift in Sources */,
 				588DFE5E22F60E23006D8AD6 /* Book.swift in Sources */,
+				5854007B22F919F400BC327C /* TextFieldTableViewCell.swift in Sources */,
+				5854007422F9080E00BC327C /* DatePickerTableViewCell.swift in Sources */,
 				588DFE5A22F60B98006D8AD6 /* BookViewController.swift in Sources */,
 				588DFE4522F602D7006D8AD6 /* BooksViewController.swift in Sources */,
 				588DFE6022F60E32006D8AD6 /* Author.swift in Sources */,
 				588DFE4322F602D7006D8AD6 /* AppDelegate.swift in Sources */,
+				5894CFC422F7B437000BEF35 /* AddAuthorViewController.swift in Sources */,
+				5894CFC222F7B428000BEF35 /* AddBookViewController.swift in Sources */,
 				588DFE6322F6165F006D8AD6 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

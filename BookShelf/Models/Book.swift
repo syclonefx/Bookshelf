@@ -8,7 +8,11 @@
 
 import Foundation
 
-enum Genre: String {
+enum Genre: String, CaseIterable {
+  case business = "Business"
+  case financial = "Financial"
+  case selfHelp = "Self Help"
+  case investing = "Investing"
   case fantasy = "Fantasy"
   case scienceFiction = "Science Fiction"
   case romance = "Romance"
@@ -16,10 +20,6 @@ enum Genre: String {
   case thriller = "Thriller"
   case mystery = "Mystery"
   case dystopia = "Dystopia"
-  case business = "Business"
-  case financial = "Financial"
-  case selfHelp = "Self Help"
-  case investing = "Investing"
 }
 
 class Book {

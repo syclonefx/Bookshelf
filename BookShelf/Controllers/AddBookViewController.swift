@@ -114,9 +114,30 @@ extension AddBookViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "authorCell", for: indexPath)
+    if cell.accessoryType == .none {
+      cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
+    }
     cell.textLabel?.text = authors[indexPath.row].name
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    if let cell = tableView.cellForRow(at: indexPath) {
+      if cell.accessoryType == .none {
+        cell.accessoryType = .checkmark
+      } else {
+        cell.accessoryType = .none
+      }
+    }
+    return indexPath
+  }
+  
 }
 
 extension AddBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -131,4 +152,5 @@ extension AddBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return Genre.allCases[row].rawValue
   }
+  
 }

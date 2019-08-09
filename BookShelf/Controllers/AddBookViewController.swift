@@ -24,6 +24,9 @@ class AddBookViewController: UIViewController {
   
   // Variables
   var authors = [Author]()
+  var genre = ""
+  var publishDate = Date()
+  var publishDateString = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,6 +37,20 @@ class AddBookViewController: UIViewController {
     
     genrePicker.delegate = self
     genrePicker.dataSource = self
+    
+    datePicker.timeZone = NSTimeZone.system
+    datePicker.datePickerMode = .date
+    datePicker.addTarget(self, action: #selector(getDate(datePicker:)), for: .valueChanged)
+  }
+  
+  @objc func getDate(datePicker: UIDatePicker) {
+    publishDate = datePicker.date
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM-dd-YYYY hh:mm:ss"
+    publishDateString = dateFormatter.string(from: publishDate)
+    
+    print("Publish Date: \(publishDateString)")
   }
   
   // Actions
@@ -53,6 +70,11 @@ class AddBookViewController: UIViewController {
         completion: nil)
     } else {
       genrePicker.isHidden = true
+      if genre != "" {
+        genreButton.setTitle("Genre: \(genre)", for: .normal)
+      } else {
+        genreButton.setTitle("Genre", for: .normal)
+      }
       UIView.animate(
         withDuration: 0.5,
         delay: 0.0,
@@ -61,8 +83,7 @@ class AddBookViewController: UIViewController {
         animations: {
           self.genrePickerHeightConstraints.constant = 0
           self.view.layoutIfNeeded()
-      },
-        completion: nil)
+      }, completion: nil)
     }
   }
   
@@ -83,6 +104,14 @@ class AddBookViewController: UIViewController {
       
     } else {
       datePicker.isHidden = true
+      if publishDateString != "" {
+        publishDateButton.setTitle("Publish Date: \(publishDateString)", for: .normal)
+      }
+      if genre != "" {
+        genreButton.setTitle("Genre: \(genre)", for: .normal)
+      } else {
+        genreButton.setTitle("Genre", for: .normal)
+      }
       UIView.animate(
         withDuration: 0.5,
         delay: 0.0,
@@ -151,6 +180,11 @@ extension AddBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
   
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return Genre.allCases[row].rawValue
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    genre = Genre.allCases[row].rawValue
+    print("Genre: \(genre)")
   }
   
 }

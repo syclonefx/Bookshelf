@@ -402,16 +402,69 @@
                     <view key="view" contentMode="scaleToFill" id="HXp-Ev-N7n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtI-xA-5hM">
+                                <rect key="frame" x="20" y="100" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JSe-Cn-0Qh">
+                                <rect key="frame" x="20" y="138" width="374" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="tZl-fJ-sOZ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ggx-Ko-9Ne">
+                                <rect key="frame" x="0.0" y="326" width="414" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="bookCell" id="EGg-Jt-IzY">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGg-Jt-IzY" id="f1K-Rx-nHc">
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JSe-Cn-0Qh" firstAttribute="leading" secondItem="Bwo-xD-844" secondAttribute="leading" constant="20" id="34G-X6-bwQ"/>
+                            <constraint firstItem="gtI-xA-5hM" firstAttribute="trailing" secondItem="JSe-Cn-0Qh" secondAttribute="trailing" id="DTB-Ur-yYY"/>
+                            <constraint firstItem="Ggx-Ko-9Ne" firstAttribute="leading" secondItem="Bwo-xD-844" secondAttribute="leading" id="Qnu-I8-D5e"/>
+                            <constraint firstItem="gtI-xA-5hM" firstAttribute="top" secondItem="Bwo-xD-844" secondAttribute="top" constant="12" id="SFQ-t3-s7P"/>
+                            <constraint firstItem="Ggx-Ko-9Ne" firstAttribute="top" secondItem="JSe-Cn-0Qh" secondAttribute="bottom" constant="8" id="TCG-Et-MwF"/>
+                            <constraint firstItem="Ggx-Ko-9Ne" firstAttribute="trailing" secondItem="Bwo-xD-844" secondAttribute="trailing" id="aA6-TF-mqf"/>
+                            <constraint firstItem="Bwo-xD-844" firstAttribute="trailing" secondItem="JSe-Cn-0Qh" secondAttribute="trailing" constant="20" id="b3p-Jz-jlu"/>
+                            <constraint firstItem="Ggx-Ko-9Ne" firstAttribute="bottom" secondItem="Bwo-xD-844" secondAttribute="bottom" id="ikQ-xV-oR6"/>
+                            <constraint firstItem="JSe-Cn-0Qh" firstAttribute="top" secondItem="gtI-xA-5hM" secondAttribute="bottom" constant="8" id="oXg-7G-Xme"/>
+                            <constraint firstItem="gtI-xA-5hM" firstAttribute="leading" secondItem="JSe-Cn-0Qh" secondAttribute="leading" id="wDL-gg-5Eb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bwo-xD-844"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Author" id="YZu-UE-Nx8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iL8-J0-8pX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iL8-J0-8pX">
+                            <connections>
+                                <action selector="addAuthor:" destination="hBS-nx-RBy" id="Rwt-KZ-Jzn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bioText" destination="JSe-Cn-0Qh" id="GRZ-b1-ixV"/>
+                        <outlet property="nameText" destination="gtI-xA-5hM" id="XV7-s6-wL3"/>
+                        <outlet property="tableView" destination="Ggx-Ko-9Ne" id="j5Z-O2-Gf3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFz-7J-Bot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2941" y="1264"/>
+            <point key="canvasLocation" x="2940.579710144928" y="1263.6160714285713"/>
         </scene>
     </scenes>
     <resources>

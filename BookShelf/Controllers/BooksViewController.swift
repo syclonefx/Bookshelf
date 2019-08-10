@@ -19,13 +19,12 @@ class BooksViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    books = DataService.instance.books
+    //books = DataService.instance.books
     tableView.delegate = self
     tableView.dataSource = self
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    print("Books will appear")
     books = DataService.instance.books
     tableView.reloadData()
   }

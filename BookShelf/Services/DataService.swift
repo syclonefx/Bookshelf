@@ -35,9 +35,11 @@ class DataService {
   func addAuthors() {
     let timFerris = Author(name: "Tim Ferris")
     let tonyRobbins = Author(name: "Tony Robbins")
+    let robertKowalski = Author(name: "Robert Kowalski")
     
     authors.append(timFerris)
     authors.append(tonyRobbins)
+    authors.append(robertKowalski)
   }
   
   

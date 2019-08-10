@@ -10,21 +10,69 @@ import UIKit
 
 class AddAuthorViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  // Outlets
+  @IBOutlet var nameText: UITextField!
+  @IBOutlet var bioText: UITextView!
+  @IBOutlet var tableView: UITableView!
+  
+  // Variables
+  let books = DataService.instance.books
+  var authorBooks = [Book]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
+  
+  // Actions
+  @IBAction func addAuthor(_ sender: UIBarButtonItem) {
+    if let name = nameText.text,
+      let bio = bioText.text {
+      let newAuthor = Author(name: name, bio: bio, portrait: nil)
+      DataService.instance.authors.append(newAuthor)
+      navigationController?.popViewController(animated: true)
     }
-    */
+  }
+}
 
+extension AddAuthorViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return books.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
+    if cell.accessoryType == .none {
+      cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
+    }
+    cell.textLabel?.text = books[indexPath.row].name
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    if let cell = tableView.cellForRow(at: indexPath) {
+      let selectedBook = books[indexPath.row]
+      if cell.accessoryType == .none {
+        cell.accessoryType = .checkmark
+        authorBooks.append(selectedBook)
+      } else {
+        cell.accessoryType = .none
+        if authorBooks.count > 0 {
+          if let index = authorBooks.firstIndex(where: { $0 === selectedBook }) {
+            authorBooks.remove(at: index)
+          }
+        }
+      }
+    }
+    return indexPath
+  }
+  
 }

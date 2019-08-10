@@ -50,8 +50,6 @@ class AddBookViewController: UIViewController {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM-dd-YYYY hh:mm:ss"
     publishDateString = dateFormatter.string(from: publishDate)
-    
-    print("Publish Date: \(publishDateString)")
   }
   
   // Actions
@@ -132,7 +130,6 @@ class AddBookViewController: UIViewController {
       let newBook = Book(name: bookName, isbn: isbn, publishDate: publishDate, genre: genre, coverImage: nil, authors: bookAuthors)
       
       DataService.instance.books.append(newBook)
-      print("Added New Book")
       navigationController?.popViewController(animated: true)
     }
   }
@@ -170,12 +167,12 @@ extension AddBookViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     if let cell = tableView.cellForRow(at: indexPath) {
+      let selectedAuthor = authors[indexPath.row]
       if cell.accessoryType == .none {
         cell.accessoryType = .checkmark
-        bookAuthors.append(authors[indexPath.row])
+        bookAuthors.append(selectedAuthor)
       } else {
         cell.accessoryType = .none
-        let selectedAuthor = authors[indexPath.row]
         if bookAuthors.count > 0 {
           if let index = bookAuthors.firstIndex(where: { $0 === selectedAuthor }) {
             bookAuthors.remove(at: index)
@@ -203,7 +200,6 @@ extension AddBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     genre = Genre.allCases[row].rawValue
-    print("Genre: \(genre)")
   }
   
 }

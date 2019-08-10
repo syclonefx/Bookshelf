@@ -13,7 +13,7 @@ class Author {
   let bio: String?
   let portrait: String?
   
-  init(name: String, bio: String, portrait: String) {
+  init(name: String, bio: String?, portrait: String?) {
     self.name = name
     self.bio = bio
     self.portrait = portrait

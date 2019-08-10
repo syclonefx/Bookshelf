@@ -18,12 +18,17 @@ class AuthorsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    authors = DataService.instance.authors
+    //authors = DataService.instance.authors
     
     tableView.delegate = self
     tableView.dataSource = self
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    authors = DataService.instance.authors
+    tableView.reloadData()
+  }
+  
   // Actions
   
 }

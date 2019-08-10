@@ -32,7 +32,7 @@ class BookViewController: UIViewController {
       authorLabel.text = "by \(auth)"
     }
   }
-
+  
   // Actions
 
 }

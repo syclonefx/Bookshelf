@@ -27,6 +27,7 @@ class AddBookViewController: UIViewController {
   var genre = ""
   var publishDate = Date()
   var publishDateString = ""
+  var bookAuthors = [Author]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -125,6 +126,17 @@ class AddBookViewController: UIViewController {
     }
   }
   
+  @IBAction func addBook(_ sender: UIBarButtonItem) {
+    if let bookName = bookNameText.text,
+      let isbn = isbnText.text {
+      let newBook = Book(name: bookName, isbn: isbn, publishDate: publishDate, genre: genre, coverImage: nil, authors: bookAuthors)
+      
+      DataService.instance.books.append(newBook)
+      print("Added New Book")
+      navigationController?.popViewController(animated: true)
+    }
+  }
+  
 }
 
 extension AddBookViewController: UITableViewDelegate, UITableViewDataSource {
@@ -160,8 +172,15 @@ extension AddBookViewController: UITableViewDelegate, UITableViewDataSource {
     if let cell = tableView.cellForRow(at: indexPath) {
       if cell.accessoryType == .none {
         cell.accessoryType = .checkmark
+        bookAuthors.append(authors[indexPath.row])
       } else {
         cell.accessoryType = .none
+        let selectedAuthor = authors[indexPath.row]
+        if bookAuthors.count > 0 {
+          if let index = bookAuthors.firstIndex(where: { $0 === selectedAuthor }) {
+            bookAuthors.remove(at: index)
+          }
+        }
       }
     }
     return indexPath

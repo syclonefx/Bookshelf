@@ -24,6 +24,12 @@ class BooksViewController: UIViewController {
     tableView.dataSource = self
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    print("Books will appear")
+    books = DataService.instance.books
+    tableView.reloadData()
+  }
+  
   // Actions
   
 }

@@ -30,7 +30,7 @@ class Book {
   let coverImage: String?
   var authors: [Author]?
   
-  init(name: String, isbn: String, publishDate: Date, genre: String, coverImage: String, authors: [Author]) {
+  init(name: String, isbn: String?, publishDate: Date?, genre: String?, coverImage: String?, authors: [Author]?) {
     self.name = name
     self.isbn = isbn
     self.publishDate = publishDate
@@ -44,7 +44,7 @@ class Book {
     self.isbn = nil
     self.publishDate = nil
     self.genre = nil
-    self.coverImage = nil
+    self.coverImage = "coverImage"
     self.authors = nil
   }
 }

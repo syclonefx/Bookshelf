@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="1944.9275362318842" y="-126.5625"/>
         </scene>
-        <!--Add Book-->
+        <!--Title-->
         <scene sceneID="KM0-8S-dH4">
             <objects>
                 <viewController id="fVh-Zy-TWJ" customClass="AddBookViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
@@ -157,13 +157,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zu6-nz-vyg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Book" id="QTV-pN-UPa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ibG-zN-L5e">
-                            <connections>
-                                <action selector="addBook:" destination="fVh-Zy-TWJ" id="NMD-7V-h1R"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="Dyy-yW-upC"/>
                     <connections>
                         <outlet property="bookNameText" destination="oN4-Ef-XtB" id="AcL-lE-Cxe"/>
                         <outlet property="datePicker" destination="utG-Yn-5Pj" id="71Y-1u-lVI"/>
